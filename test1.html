@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nlarm.com</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/he.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    
+</head>
+<body class="container">
+    <header>
+        <h1>nlarm</h1>
+    </header>
+
+    <div id="app" class="text-center">
+        <h5 v-on:click="office = !office"  class="hoverable">メニュー画面</h5><br>
+        <transition>
+            <p v-if="office">
+                <p><a href="リンク先のＵＲＬ">お土産診断</button></a>
+                <p><a href="リンク先のＵＲＬ">レビュー</button></a>
+                <p><a href="リンク先のＵＲＬ">Ⓢポイント</button></a>
+                <p><a href="リンク先のＵＲＬ">マイページ</button></a>
+                <p><a href="リンク先のＵＲＬ">お気に入り</button></a>
+                <p><a href="リンク先のＵＲＬ">お問い合わせ</button></a>
+                <p><a href="リンク先のＵＲＬ">FAQ</button></a>
+                <button v-if="office" v-on:click="office = false" class="hoverable">閉じる×</button>
+            </p>
+        </transition>
+
+        <footer>
+            <p>最終更新2023年4月25日</p>
+        </footer>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                office:false,
+            },
+            methods: {
+                scrollToTop() {
+                    window.scrollTo({
+                        top:0,
+                        behavior:'smooth'
+                    });
+                }
+            }
+        })
+    </script>
+    <style>
+        /* 現れている最中と、消えている最中は、0.5秒 */
+        .v-enter-active, .v-leave-active {
+            transition: 0.5s;
+        }
+        /* 現れる前の状態と、消えたときの状態は、透明度0で、下へ50移動*/
+        .v-enter, .v-leave-to {
+            opacity: 0;
+            transform: translateY(50px)
+        }
+
+    </style>
+</body>
+</html>
